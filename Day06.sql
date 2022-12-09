@@ -91,18 +91,20 @@ INSERT INTO musteriler6 (id, isim, gelir) VALUES (1007, 'erhan', 92000);
 LIKE kullanımında büyük küçük harf gözetmeksizin sonuç almak istersek ILIKE kullanırız
 LIKE yerine ~~ sembollerini kullanabiliriz. Eğer büyük küçük harf gözetmeksizin kullanmak istersek ~~* sembollerini kullanırız
 */
-SELECT * FROM musteriler WHERE isim ILIKE 'A%'
-SELECT * FROM musteriler WHERE isim ~~* 'A%'
+SELECT * FROM musteriler6 WHERE isim ILIKE 'A%'
+SELECT * FROM musteriler6 WHERE isim ~~* 'A%'
 --Ismi e harfi ile biten musterilerin isimlerini ve gelir’lerini yazdiran QUERY yazin
-SELECT isim,gelir FROM musteriler WHERE isim ~~ '%e'
+SELECT isim,gelir FROM musteriler6 WHERE isim ~~ '%e'
 --Isminin icinde er olan musterilerin isimlerini ve gelir’lerini yazdiran QUERY yazin
-SELECT isim,gelir FROM musteriler WHERE isim like '%er%'
+SELECT isim,gelir FROM musteriler6 WHERE isim like '%er%'
 --Ismi 5 harfli olup son 4 harfi atma olan musterilerin tum bilgilerini yazdiran QUERY yazin
-SELECT * FROM musteriler WHERE isim ~~ '_atma'
+SELECT * FROM musteriler6 WHERE isim ~~ '_atma'
 --Ikinci harfi a olan musterilerin tum bilgilerini yazdiran QUERY yazin
-SELECT * FROM musteriler WHERE isim like '_a%'
+SELECT * FROM musteriler6 WHERE isim like '_a%'
 --Ucuncu harfi s olan musterilerin tum bilgilerini yazdiran QUERY yazin
-SELECT * FROM musteriler WHERE isim ~~ '__s%'
+SELECT * FROM musteriler6 WHERE isim ~~ '__s%'
+
+
 -- REGEXP_LIKE (~) KULLANIMI
 CREATE TABLE kelimeler  (
 id int UNIQUE,
@@ -127,6 +129,8 @@ SELECT * FROM kelimeler WHERE kelime ~* 'h[a-k]t'
 SELECT * FROM kelimeler WHERE kelime ~* '^[as]'
 -- SORU : m veya f ile biten kelimelerin tum bilgilerini yazdiran QUERY yazin
 SELECT * FROM kelimeler WHERE kelime ~* '[mf]$'
+
+
 -- UPPER – LOWER - INITCAP
 -- Kelimeler tablosundaki kelime sutunundaki verileri önce hepsi büyük harf, sonra küçük harf ve ilk harfleri 
 -- büyük harf olucak şekilde yazdıralım
